@@ -12,6 +12,9 @@ pagination = indeed_soup.find("div", {"class": "pagination"})
 # 그 결과를 list로 만들어 pages 변수에 넣어줌
 
 pages = pagination.find_all('a')
-
+spans = []
+# page로 추출한 모든 anchor속에서 span 찾기
 for page in pages:
-    print(page.find("span"))
+    spans.append(page.find("span"))
+
+print(spans)
