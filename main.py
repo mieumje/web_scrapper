@@ -1,8 +1,3 @@
-# requests 사용방법
-""" import requests
-r = requests.get('https://api.github.com/user', auth=('user', 'pass')) """
-
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -11,4 +6,6 @@ indeed_result = requests.get(
 
 indeed_soup = BeautifulSoup(indeed_result.text, 'html.parser')
 
-print(indeed_soup)
+pagination = indeed_soup.find("div", {"class": "pagination"})
+
+print(pagination)
