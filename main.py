@@ -8,4 +8,6 @@ indeed_soup = BeautifulSoup(indeed_result.text, 'html.parser')
 
 pagination = indeed_soup.find("div", {"class": "pagination"})
 
-print(pagination)
+pages = pagination.find_all('a')
+
+print(pages)
