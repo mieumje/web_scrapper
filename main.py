@@ -22,4 +22,4 @@ spans = []
 for page in pages:
     spans.append(page.find("span"))
 
-print(spans[:-1])
+spans = spans[:-1]
