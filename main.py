@@ -16,10 +16,10 @@ pagination = indeed_soup.find("div", {"class": "pagination"})
 # 빈 array를 만들고
 # pages에 있는 각 page마다 span을 찾아서
 # 빈 array에 넣어준다.
-pages = pagination.find_all('a')
+links = pagination.find_all('a')
 spans = []
 
-for page in pages:
-    spans.append(page.find("span"))
+for link in links:
+    spans.append(link.find("span"))
 
 spans = spans[:-1]
