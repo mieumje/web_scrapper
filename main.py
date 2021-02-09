@@ -20,6 +20,7 @@ links = pagination.find_all('a')
 pages = []
 
 for link in links:
-    pages.append(link.find("span"))
+    pages.append(link.string)
 
-pages = pages[:-1]
+pages = pages[0:-1]
+print(pages)
