@@ -31,6 +31,8 @@ def extract_indeed_pages():
 
 
 def extract_indeed_jobs(last_page):
+    jobs = []
     for page in range(last_page):
         result = requests.get(f"{URL}&start={page*LIMIT}")
         print(result.status_code)
+    return jobs
