@@ -5,11 +5,11 @@ INDEED_URL = "https://kr.indeed.com/jobs?q=%ED%8C%8C%EC%9D%B4%EC%8D%AC&limit=50&
 
 
 def extract_indeed_pages():
-    indeed_result = requests.get(INDEED_URL)
+    result = requests.get(INDEED_URL)
 
-    indeed_soup = BeautifulSoup(indeed_result.text, 'html.parser')
+    soup = BeautifulSoup(result.text, 'html.parser')
 
-    pagination = indeed_soup.find("div", {"class": "pagination"})
+    pagination = soup.find("div", {"class": "pagination"})
 
     # pagination 변수에 찾은 결과를 넣어줌
     # 그 결과를 list로 만들어 pages 변수에 넣어줌
