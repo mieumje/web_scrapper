@@ -26,4 +26,4 @@ def extract_indeed_pages():
 
     max_page = pages[-1]
     # 페이지 숫자 중 가장 큰 수, 배열의 마지막 요소
-    print(max_page)
+    return max_page
