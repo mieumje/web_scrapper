@@ -19,9 +19,12 @@ pagination = indeed_soup.find("div", {"class": "pagination"})
 links = pagination.find_all('a')
 pages = []
 
-for link in links[:-1]:
+for link in links[:-1]:  # '다음'버튼은 무시
     pages.append(int(link.string))
 
 
 max_page = pages[-1]
 # 페이지 숫자 중 가장 큰 수, 배열의 마지막 요소
+
+for n in range(max_page):
+    print(f"start={n*50}")
