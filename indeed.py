@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 LIMIT = 50
-URL = f"https://kr.indeed.com/jobs?q=%ED%8C%8C%EC%9D%B4%EC%8D%AC&limit={LIMIT}"
+URL = f"https://kr.indeed.com/%EC%B7%A8%EC%97%85?q=%ED%8C%8C%EC%9D%B4%EC%8D%AC&limit={LIMIT}"
 
 
 def extract_indeed_pages():
@@ -32,4 +32,5 @@ def extract_indeed_pages():
 
 def extract_indeed_jobs(last_page):
     for page in range(last_page):
-        print(f"&start={page*LIMIT}")
+        result = requests.get(f"{URL}&start={page*LIMIT}")
+        print(result.status_code)
