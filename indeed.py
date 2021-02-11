@@ -44,5 +44,5 @@ def extract_indeed_jobs(last_page):
             company = company_anchor.string
         else:
             company = company.string
-        # print(company)
+        print(title, company)
     return jobs
