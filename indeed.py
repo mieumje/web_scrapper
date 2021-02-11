@@ -38,5 +38,6 @@ def extract_indeed_jobs(last_page):
     results = soup.find_all("div", {"class": "jobsearch-SerpJobCard"})
     for result in results:
         title = result.find("h2", {"class": "title"})
-        print(title.find("a").string)
+        anchor = title.find("a")["title"]
+        print(anchor)
     return jobs
