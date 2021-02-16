@@ -39,7 +39,8 @@ def extract_jobs(html):  # 인자로 soup을 준다.
     else:
         company = company.string
     company = company.strip()
-    return {'title': title, 'company': company}
+    location = html.find("span", {"class": "location"}).string
+    return {'title': title, 'company': company, 'location': location}
 
 
 def extract_indeed_jobs(last_page):
