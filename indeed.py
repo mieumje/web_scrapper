@@ -38,6 +38,7 @@ def extract_jobs(html):  # 인자로 soup을 준다.
         company = company_anchor.string
     else:
         company = company.string
+    company = company.strip()
     return {'title': title, 'company': company}
 
 
