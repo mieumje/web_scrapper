@@ -39,7 +39,7 @@ def extract_jobs(html):  # 인자로 soup을 준다.
     else:
         company = company.string
     company = company.strip()
-    location = html.find("span", {"class": "location"}).string
+    location = html.find("div", {"class": "recJobLoc"})["data-rc-loc"]
     return {'title': title, 'company': company, 'location': location}
 
 
