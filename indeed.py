@@ -34,11 +34,14 @@ def extract_jobs(html):  # 인자로 soup을 준다.
     title = html.find("h2", {"class": "title"}).find("a")["title"]
     company = html.find("div", {"class": "sjcl"}).find("span")
     company_anchor = company.find("a")
-    if company_anchor is not None:
-        company = company_anchor.string
+    if company:
+        if company_anchor is not None:
+            company = company_anchor.string
+        else:
+            company = company.string
+        company = company.strip()
     else:
-        company = company.string
-    company = company.strip()
+        comapny = None
     location = html.find("div", {"class": "recJobLoc"})["data-rc-loc"]
     job_id = html["data-jk"]
     return {'title': title, 'company': company, 'location': location, 'link': f"https://kr.indeed.com/%EC%B1%84%EC%9A%A9%EB%B3%B4%EA%B8%B0?jk={job_id}"}
