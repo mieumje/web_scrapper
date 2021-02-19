@@ -1,4 +1,5 @@
-from indeed import extract_indeed_pages, extract_indeed_jobs
+from indeed import get_jobs as iget_jobs
 
+indeed_jobs = iget_jobs()
 
 print(indeed_jobs)
