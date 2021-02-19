@@ -16,7 +16,8 @@ def get_last_page():
 def extract_jobs(last_page):
     jobs = []
     for page in range(last_page):
-        print(page + 1)
+        result = requests.get(f"{URL}&pg={page+1}")
+        print(result.status_code)
 
 
 def get_jobs():
