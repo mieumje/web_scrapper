@@ -8,7 +8,8 @@ URL = f"https://stackoverflow.com/jobs?q=python&pg=2"
 def get_last_page():
     resulst = requests.get(URL)
     soup = BeautifulSoup(resulst.text, "html.parser")
-    print(soup)
+    pagination = soup.find("div", {"class": "s-pagination"})
+    print(pagination)
 
 
 def get_jobs():
