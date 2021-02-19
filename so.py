@@ -9,8 +9,8 @@ def get_last_page():
     resulst = requests.get(URL)
     soup = BeautifulSoup(resulst.text, "html.parser")
     pages = soup.find("div", {"class": "s-pagination"}).find_all("a")
-    pages = pages[0:-1]
-    print(pages)
+    last_pages = pages[-2]
+    print(last_pages)
 
 
 def get_jobs():
