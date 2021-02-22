@@ -19,6 +19,9 @@ def extract_job(html):
         "span", recursive=False)
     comapny = company.get_text(strip=True)
     location = location.get_text(strip=True)
+    job_id = html["data-jobid"]
+    link = f"https://stackoverflow.com/jobs/{job_id}"
+    print(link)
     return {'title': title, 'company': company, 'location': location}
 
 
