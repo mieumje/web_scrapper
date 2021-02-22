@@ -17,12 +17,10 @@ def extract_job(html):
     title = html.find("h2", {"class": "mb4"}).find("a")["title"]
     company, location = html.find("h3", {"class": "mb4"}).find_all(
         "span", recursive=False)
-    comapny = company.get_text(strip=True)
+    company = company.get_text(strip=True)
     location = location.get_text(strip=True)
     job_id = html["data-jobid"]
-    link = f"https://stackoverflow.com/jobs/{job_id}"
-    print(link)
-    return {'title': title, 'company': company, 'location': location}
+    return {'title': title, 'company': company, 'location': location, 'link': f"https://stackoverflow.com/jobs/{job_id}"}
 
 
 def extract_jobs(last_page):
