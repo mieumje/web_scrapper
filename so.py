@@ -17,8 +17,9 @@ def extract_job(html):
     title = html.find("h2", {"class": "mb4"}).find("a")["title"]
     company, location = html.find("h3", {"class": "mb4"}).find_all(
         "span", recursive=False)
-    print(company.get_text(strip=True), location.get_text(strip=True))
-    return {'title': title}
+    comapny = company.get_text(strip=True)
+    location = location.get_text(strip=True)
+    return {'title': title, 'company': company, 'location': location}
 
 
 def extract_jobs(last_page):
