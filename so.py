@@ -13,6 +13,11 @@ def get_last_page():
     return int(last_pages)  # for 문의 in range에 사용하기 위해 integer로 형변환
 
 
+def extract_job(html):
+    title = html.find("h2", {"class": "mb4"}).find("a")["title"]
+    print(title)
+
+
 def extract_jobs(last_page):
     jobs = []
     for page in range(last_page):
@@ -20,7 +25,9 @@ def extract_jobs(last_page):
         soup = BeautifulSoup(result.text, "html.parser")
         results = soup.find_all("div", {"class": "-job"})
         for result in results:
-            print(result["data-jobid"])
+            job = extract_job(result)
+            jobs.append(job)
+    return jobs
 
 
 def get_jobs():
